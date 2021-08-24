@@ -21,6 +21,9 @@ function exampleEndpoint(exampleRequest: ExampleRequest): Promise<ExampleRespons
 
 const AppContainer = styled.div`
   text-align: center;
+  width: 100%
+  height: 100%
+  min-height: 100%
 `
 
 function ifThenElse<X>(b:boolean, x:X, y:X): X {

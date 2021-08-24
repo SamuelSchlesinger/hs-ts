@@ -7,5 +7,5 @@ yarn build
 echo "Transpiled and optimized the frontend artifacts"
 mkdir -p $HOME/.devtool
 echo "Ensured the existence the $HOME/.devtool directory"
-cp -R build $HOME/.devtool
+cp -R build/* $HOME/.devtool
 echo "Copied the frontend artifacts to the $HOME/.devtool directory"
