@@ -1,0 +1,36 @@
+cabal-version:      2.4
+name:               hs-ts
+version:            0.1.0.0
+author:             Samuel Schlesinger
+maintainer:         samuel@simspace.com
+extra-source-files: CHANGELOG.md
+
+library
+  exposed-modules: DevTool, Web.API, Web.Server, DevTool.Interface, Web.Json
+  build-depends:
+    base >=4.4 && <5,
+    wai >=3.2 && <4,
+    warp >=3.3 && <4,
+    aeson >=1.5 && <2,
+    aeson-typescript >=0.3 && <1,
+    wai-cors >=0.2 && <1,
+    servant >=0.18 && <0.19,
+    servant-server >=0.18 && <0.19,
+    sop-core >=0.5 && <1,
+    optparse-applicative >=0.16 && <1,
+    directory >=1.3 && <2,
+    bytestring >=0.10 && <1,
+    containers >=0.6 && <1,
+    time >=1.9 && <2,
+    text >=1.2 && <2,
+    http-media >=0.8 && <0.9,
+    wai-extra >=3.1 && <4
+  hs-source-dirs: src
+  ghc-options: -Wall -Werror
+  default-language: Haskell2010
+
+executable devtool
+    main-is:          Main.hs
+    build-depends:    base ^>=4.14.2.0, hs-ts
+    hs-source-dirs:   app
+    default-language: Haskell2010
