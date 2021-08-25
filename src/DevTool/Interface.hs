@@ -12,7 +12,6 @@ import Network.Wai.Handler.Warp (run)
 import Network.Wai.Middleware.RequestLogger (logStdoutDev)
 import Network.Wai.Middleware.Autohead (autohead)
 import Network.Wai.Middleware.Cors (cors, simpleCorsResourcePolicy, CorsResourcePolicy(..))
-import System.Directory (getHomeDirectory, setCurrentDirectory)
 
 data Command =
     TypeScript
@@ -27,9 +26,7 @@ typescript :: IO ()
 typescript = putStrLn renderedTypeScriptTypes
 
 serve :: Int -> IO ()
-serve n = do
-  getHomeDirectory >>= setCurrentDirectory . (<> "/.devtool")
-  run n . middleware $ Servant.serve api server
+serve n = run n . middleware $ Servant.serve api server
   where
     middleware = 
         logStdoutDev

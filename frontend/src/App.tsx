@@ -35,7 +35,7 @@ function ifThenElse<X>(b:boolean, x:X, y:X): X {
 
 function ExampleForm(props: { input: string, output: string | null, onInputChange: (e:React.ChangeEvent<HTMLInputElement>) => void }) {
   return (
-    <form >
+    <form>
       <input type="string" onChange={props.onInputChange} value={props.input}/>
       <p> Amazing output: { props.output } </p>
     </form>

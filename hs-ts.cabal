@@ -3,28 +3,32 @@ name:               hs-ts
 version:            0.1.0.0
 author:             Samuel Schlesinger
 maintainer:         samuel@simspace.com
-extra-source-files: CHANGELOG.md
+extra-source-files: CHANGELOG.md, frontend/build/static/js/*.js, frontend/build/static/css/*.css, frontend/build/*.ico, frontend/build/index.html, frontend/build/*.png, frontend/build/*.txt
 
 library
-  exposed-modules: DevTool, Web.API, Web.Server, DevTool.Interface, Web.Json
+  exposed-modules: DevTool, Web.API, Web.Server, DevTool.Interface, Web.Json, Web.Server.Static
   build-depends:
-    base >=4.4 && <5,
-    wai >=3.2 && <4,
-    warp >=3.3 && <4,
     aeson >=1.5 && <2,
     aeson-typescript >=0.3 && <1,
-    wai-cors >=0.2 && <1,
+    base >=4.4 && <5,
+    bytestring >=0.10 && <1,
+    containers >=0.6 && <1,
+    directory >=1.3 && <2,
+    file-path-th >=0.1 && <0.2,
+    filepath >=1.4 && <1.5,
+    http-media >=0.8 && <0.9,
+    optparse-applicative >=0.16 && <1,
     servant >=0.18 && <0.19,
     servant-server >=0.18 && <0.19,
     sop-core >=0.5 && <1,
-    optparse-applicative >=0.16 && <1,
-    directory >=1.3 && <2,
-    bytestring >=0.10 && <1,
-    containers >=0.6 && <1,
-    time >=1.9 && <2,
     text >=1.2 && <2,
-    http-media >=0.8 && <0.9,
-    wai-extra >=3.1 && <4
+    time >=1.9 && <2,
+    transformers >=0.4 && <0.7,
+    wai >=3.2 && <4,
+    wai-app-static >=3.1 && <4,
+    wai-cors >=0.2 && <1,
+    wai-extra >=3.1 && <4,
+    warp >=3.3 && <4
   hs-source-dirs: src
   ghc-options: -Wall -Werror
   default-language: Haskell2010

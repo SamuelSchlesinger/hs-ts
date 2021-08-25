@@ -1,10 +1,13 @@
+{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE DataKinds #-}
 module Web.Server where
 
 import Web.API
+import Web.Server.Static
 import Servant
 import Data.SOP.BasicFunctors (I(..))
+import WaiAppStatic.Storage.Embedded (mkSettings)
 
 server :: Server API
 server
@@ -27,7 +30,7 @@ redirect
     )
 
 fileServer :: Server Raw
-fileServer = serveDirectoryWebApp "."
+fileServer = serveDirectoryWith $(mkSettings mkEmbedded) where
 
 example :: ExampleRequest -> Handler ExampleResponse
 example exampleRequest = pure $ ExampleResponse
